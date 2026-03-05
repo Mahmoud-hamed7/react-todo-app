@@ -1,30 +1,48 @@
-# ⚛️ React Task Manager (Todo App)
+⚛️ React Task Manager (Todo App)
+A sophisticated daily task management application built with React.js. This project focuses on implementing advanced State Management concepts and delivering a seamless User Experience (UX).
 
-تطبيق متطور لإدارة المهام اليومية تم بناؤه باستخدام **React.js**. يهدف المشروع إلى تطبيق مفاهيم متقدمة في إدارة الحالة (State Management) وتجربة المستخدم (UX).
+🔗 Live Demo: View Project on Netlify
 
-🔗 **Live Demo:** [https://papaya-bombolone-81cf00.netlify.app/](https://papaya-bombolone-81cf00.netlify.app/)
+🚀 Technical Features
+Global State Management: Leveraged the Context API for centralized data management to prevent Prop Drilling and ensure clean code architecture.
 
----
+Data Persistence: Integrated LocalStorage to ensure tasks remain saved even after page refreshes or browser restarts.
 
-## 🚀 المميزات التقنية (Technical Features)
+Full CRUD Functionality: Complete support for Creating, Reading, Updating, and Deleting tasks with a smooth interface.
 
-* **Global State Management:** استخدام `Context API` لإدارة البيانات بشكل مركزي وتجنب الـ Prop Drilling.
-* **Data Persistence:** ربط التطبيق بـ `LocalStorage` لضمان بقاء البيانات حتى بعد إعادة تحميل الصفحة.
-* **Full CRUD Functionality:** القدرة على إضافة، عرض، تعديل، وحذف المهام (Create, Read, Update, Delete).
-* **Smart Filtering:** نظام فلترة متقدم لعرض (الكل - المكتملة - غير المكتملة).
-* **Custom UI/UX:** * تصميم عصري ومتجاوب (Responsive Design).
-    * نظام تأكيد قبل الحذف (Confirmation Modals).
-    * تنبيهات مرئية للمهام المكتملة (Line-through & Opacity).
+Smart Filtering: Advanced filtering system to categorize tasks into (All - Completed - Active).
 
-## 🛠️ الأدوات المستخدمة (Tech Stack)
+Custom UI/UX:
 
-* **Frontend:** React.js, Bootstrap 5.
-* **Icons:** Emoji & Custom CSS.
-* **Utilities:** UUID (Unique ID generation).
-* **Deployment:** Netlify.
+Modern and fully Responsive Design across all devices.
 
-## 📂 كيفية التشغيل محلياً (Installation)
+Confirmation Modals implemented before deletion to prevent accidental data loss.
 
-1. قم بعمل Clone للمشروع:
-   ```bash
-   git clone [https://github.com/Mahmoud-hamed7/react-todo-app.git](https://github.com/Mahmoud-hamed7/react-todo-app.git)
+Visual indicators for completed tasks using dynamic styling (Line-through & Opacity transitions).
+
+🛠️ Tech Stack
+Frontend: React.js, Bootstrap 5.
+
+Icons: Custom CSS & Emojis.
+
+Utilities: uuid for unique ID generation.
+
+Deployment: Netlify.
+
+📂 Installation & Setup
+Clone the repository:
+
+Bash
+git clone https://github.com/Mahmoud-hamed7/react-todo-app.git
+Navigate to the project directory:
+
+Bash
+cd react-todo-app
+Install dependencies:
+
+Bash
+npm install
+Start the development server:
+
+Bash
+npm start
