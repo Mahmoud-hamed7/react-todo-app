@@ -9,7 +9,6 @@ export default function TodoElement({ todo }) {
   const [isUpdating, setIsUpdating] = useState(false);
   const [upDating, setupDating] = useState({ title: todo.title, details: todo.details });
 
- 
   const theme = {
     primary: "#ff7b00",
     success: "#2e7d32",
@@ -47,7 +46,10 @@ export default function TodoElement({ todo }) {
   return (
     <>
       
-      {(isDeleting || isUpdating) && <div className="overlay-screen" style={{zIndex: 1000}}></div>}
+      {(isDeleting || isUpdating) && <div className="overlay-screen" onClick={()=>{
+        setIsDeleting(false)
+        setIsUpdating(false)
+      }} style={{zIndex: 1000}}></div>}
 
       
       {isDeleting && (
