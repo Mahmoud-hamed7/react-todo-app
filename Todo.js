@@ -2,11 +2,13 @@ import { useState, useEffect, useContext, useMemo } from "react";
 import TodoElement from "./TodoElment";
 import { TodoContext } from "./contexts/TodoContext";
 import { v4 as uuidv4 } from "uuid";
+import { SnackBarContext } from "./contexts/SnackBarContext";
 
 export default function Todo() {
   const [addtodo, Setaddtodo] = useState("");
   const { todos, Settodos } = useContext(TodoContext);
   const [displayTodos, SetDisplayTodos] = useState("all");
+  const { SnackOpen } = useContext(SnackBarContext);
 
   function handleDisplayTodos(status) {
     SetDisplayTodos(status);
@@ -24,7 +26,7 @@ export default function Todo() {
     return todos.filter((t) => t.IsComplete);
   }, [todos]);
   const nonCompletedTodos = useMemo(() => {
-    todos.filter((t) => {
+   return  todos.filter((t) => {
       //  console.log("calling not completee");
 
       return !t.IsComplete;
@@ -34,11 +36,10 @@ export default function Todo() {
   let TodosTobeRender = todos;
   if (displayTodos === "completed") TodosTobeRender = completedTodos;
   else if (displayTodos === "nonCompleted") TodosTobeRender = nonCompletedTodos;
-
+  
   const todoList = TodosTobeRender.map((t) => {
     return <TodoElement key={t.id} todo={t} />;
   });
-
   function handleAddTodo() {
     if (addtodo.trim() === "") return;
     const NewTodo = {
@@ -51,6 +52,7 @@ export default function Todo() {
     Settodos(UpdatedTodos);
     Setaddtodo("");
     localStorage.setItem("todos", JSON.stringify(UpdatedTodos));
+    SnackOpen()
   }
 
   useEffect(() => {

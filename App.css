@@ -103,3 +103,56 @@
   color: #d9534f; /* لون أحمر للتنبيه */
   margin-bottom: 15px;
 }
+
+
+.custom-toast {
+  min-width: 320px;
+  background: #ffffff;
+  border-radius: 10px !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.toast-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.icon-wrapper {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.toast-progress {
+  height: 3px;
+  width: 100%;
+  background: #f0f0f0;
+}
+
+.toast-bar {
+  height: 100%;
+  width: 100%;
+  animation: shrink 3s linear forwards;
+}
+
+@keyframes shrink {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.toast.show {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(110%); }
+  to { transform: translateX(0); }
+}
