@@ -1,10 +1,13 @@
 import { useState, useContext } from "react";
 import "./TodoElement.css";
 import { TodoContext } from "./contexts/TodoContext";
-import { SnackBarContext } from "./contexts/SnackBarContext";
+import { SnackBarContext,useSnackBar } from "./contexts/SnackBarContext";
 
 export default function TodoElement({ todo }) {
   const { todos, Settodos } = useContext(TodoContext);
+  const { SnackOpen } = useSnackBar();
+  // console.log(SnackBarContext);
+  
 
   const [isDeleting, setIsDeleting] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
@@ -28,6 +31,8 @@ export default function TodoElement({ todo }) {
     });
     Settodos(updatedTodos);
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    SnackOpen("تمام خلصت")
+    
   }
 
   function confirmDelete() {
@@ -35,6 +40,8 @@ export default function TodoElement({ todo }) {
     Settodos(upDateDelete);
     setIsDeleting(false);
     localStorage.setItem("todos", JSON.stringify(upDateDelete));
+    SnackOpen("اتمسحت يمعلم")
+    
   }
 
   function handelUpdating() {
@@ -47,6 +54,7 @@ export default function TodoElement({ todo }) {
     Settodos(UPdating);
     setIsUpdating(false);
     localStorage.setItem("todos", JSON.stringify(UPdating));
+    SnackOpen("اتعدلت يمعلم")
   }
 
   return (

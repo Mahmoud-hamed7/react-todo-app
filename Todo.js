@@ -2,13 +2,13 @@ import { useState, useEffect, useContext, useMemo } from "react";
 import TodoElement from "./TodoElment";
 import { TodoContext } from "./contexts/TodoContext";
 import { v4 as uuidv4 } from "uuid";
-import { SnackBarContext } from "./contexts/SnackBarContext";
+import { SnackBarContext,useSnackBar } from "./contexts/SnackBarContext";
 
 export default function Todo() {
   const [addtodo, Setaddtodo] = useState("");
   const { todos, Settodos } = useContext(TodoContext);
   const [displayTodos, SetDisplayTodos] = useState("all");
-  const { SnackOpen } = useContext(SnackBarContext);
+  const { SnackOpen } =useSnackBar() ;
 
   function handleDisplayTodos(status) {
     SetDisplayTodos(status);
@@ -52,7 +52,7 @@ export default function Todo() {
     Settodos(UpdatedTodos);
     Setaddtodo("");
     localStorage.setItem("todos", JSON.stringify(UpdatedTodos));
-    SnackOpen()
+    SnackOpen("تمت اضافه مهمه جديده")
   }
 
   useEffect(() => {

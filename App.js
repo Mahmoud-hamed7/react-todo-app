@@ -6,7 +6,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import MySnackBar from "./MySnackBar";
 import { createContext, useContext } from "react";
-import { SnackBarContext } from "./contexts/SnackBarContext";
+import { SnackBarContext,SnackBarProvider } from "./contexts/SnackBarContext";
 
 const InitTodos = [
   {
@@ -38,31 +38,25 @@ const InitTodos = [
 ];
 
 function App() {
-  const [ShowSnack, setShowSnack] = useState(false);
   const [todos, Settodos] = useState(InitTodos);
+  
 
-  function SnackOpen() {
-    setShowSnack(true);
-    setTimeout(() => {
-      setShowSnack(false);
-    }, 3000);
-  }
+  
 
   return (
-    <SnackBarContext.Provider value={{ SnackOpen: SnackOpen }}>
+    <SnackBarProvider >
       <div
         className="App "
         style={{
           direction: "rtl",
         }}
       >
-        <MySnackBar ShowSnack={ ShowSnack } />
 
         <TodoContext.Provider value={{ todos, Settodos }}>
           <Todo></Todo>
         </TodoContext.Provider>
       </div>
-    </SnackBarContext.Provider>
+    </SnackBarProvider>
   );
 }
 
